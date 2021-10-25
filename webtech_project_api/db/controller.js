@@ -36,15 +36,15 @@ exports.getAll = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-  }
+  // if (!req.body) {
+  //   res.status(400).send({
+  //     message: "Content can not be empty!",
+  //   });
+  // }
 
-  const username = req.body.username;
+  // const username = req.body.username;
 
-  Users.delete(username, (err, data) => {
+  Users.delete(req.params.username, (err, data) => {
     if (err)
       res.status(500).send({
         message: err.message || "Some error occurred while deleting the user.",

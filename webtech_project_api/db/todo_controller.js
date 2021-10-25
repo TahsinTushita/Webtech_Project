@@ -82,15 +82,7 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  if (!req.body) {
-    res.status(400).send({
-      message: "Content can not be empty!",
-    });
-  }
-
-  const id = req.body.id;
-
-  TodoDelete.delete(id, (err, data) => {
+  TodoDelete.delete(req.params.id, (err, data) => {
     if (err)
       res.status(500).send({
         message: err.message || "Some error occurred while deleting the todo.",

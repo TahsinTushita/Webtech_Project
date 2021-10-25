@@ -1,18 +1,45 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="wrapper">
+    <div><User /></div>
+    <div><Pet /></div>
+    <div><Hobby /></div>
+    <div><TodoList /></div>
+    <div><Blog /></div>
+
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import User from "../components/User.vue"
+import Pet from "../components/Pet.vue"
+import Hobby from "../components/Hobby.vue"
+import TodoList from "../components/TodoList.vue"
+import Blog from "../components/Blog.vue"
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    User,
+    Pet,
+    Hobby,
+    TodoList,
+    Blog
   }
 }
 </script>
+
+<style scoped>
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper>div {
+    flex: 1 1 150px;
+    height: 500px;
+    margin: 10px;
+    padding: 10px;
+}
+
+</style>
