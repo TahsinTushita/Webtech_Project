@@ -2,6 +2,8 @@
 /node_modules
 /dist
 /vue.js.config
+/cypress
+/cypress.json
 
 
 # local env files

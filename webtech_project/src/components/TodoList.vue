@@ -1,19 +1,19 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <label>Todo:</label>
-    <input type="text" required v-model="todo"/>
+    <input class="todo" type="text" required v-model="todo"/>
     <label>User name:</label>
-    <input type="text" required v-model="username"/>
+    <input class="todo_username" type="text" required v-model="username"/>
 
     <div class="submit">
-      <button class="submitBtn" @click="addTodo">Add Todo</button>
+      <button class="submitBtnTodo" @click="addTodo">Add Todo</button>
     </div>
 
     <div v-if="todoList.length">
         <div v-for="todo in todoList" :key="todo.id">
             <h3>{{ todo.todo }}</h3>
             <h4>{{ todo.username }}</h4>
-            <button class="deleteBtn" @click="deleteTodo(todo.id)">DELETE</button>
+            <button class="deleteBtnTodo" @click="deleteTodo(todo.id)">DELETE</button>
             <button class="updateBtn" @click="toggleUpdateModal(todo.todo, todo.id)">UPDATE</button>
         </div>
     </div>
@@ -144,7 +144,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.submitBtn {
+.submitBtnTodo {
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
@@ -153,7 +153,7 @@ input[type="checkbox"] {
   border-radius: 20px;
 }
 
-.deleteBtn {
+.deleteBtnTodo {
   background: red;
   border: 0;
   padding: 5px 10px;
@@ -181,4 +181,13 @@ input[type="checkbox"] {
   font-size: 0.8em;
   font-weight: bold;
 }
+
+.todo {
+  text-decoration: none;
+}
+
+.todo_username {
+  text-decoration: none;
+}
+
 </style>

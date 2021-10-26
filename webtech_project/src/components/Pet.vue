@@ -1,18 +1,18 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <label>Pet name:</label>
-    <input type="text" required v-model="pet" />
+    <input class="petName" type="text" required v-model="pet" />
     <label>User name:</label>
-    <input type="text" required v-model="username" />
+    <input class="pet_username" type="text" required v-model="username" />
 
     <div class="submit">
-      <button class="submitBtn" @click="adoptPet">Adopt Pet</button>
+      <button class="submitBtnPet" @click="adoptPet">Adopt Pet</button>
     </div>
     <div v-if="pets.length">
         <div v-for="pet in pets" :key="pet.id">
             <h3> {{ pet.pet }} </h3>
             <h4>{{ pet.username }} </h4>
-            <button class="deleteBtn" @click="deletePet(pet.id)">delete</button>
+            <button class="deleteBtnPet" @click="deletePet(pet.id)">delete</button>
             <button class="updateBtn" @click="toggleUpdateModal(pet.pet,pet.id)">update</button>
         </div>
     </div>
@@ -142,7 +142,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.submitBtn {
+.submitBtnPet {
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
@@ -151,7 +151,7 @@ input[type="checkbox"] {
   border-radius: 20px;
 }
 
-.deleteBtn {
+.deleteBtnPet {
   background: red;
   border: 0;
   padding: 5px 10px;
@@ -179,4 +179,14 @@ input[type="checkbox"] {
   font-size: 0.8em;
   font-weight: bold;
 }
+
+.petName{
+  text-decoration: none;
+}
+
+.pet_username{
+  text-decoration: none;
+}
+
+
 </style>

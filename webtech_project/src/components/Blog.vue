@@ -1,12 +1,12 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <label>Blog:</label>
-    <input type="text" required v-model="blog" />
+    <input class="blog" type="text" required v-model="blog" />
     <label>User name:</label>
-    <input type="text" required v-model="username" />
+    <input class="blog_username" type="text" required v-model="username" />
 
     <div class="submit">
-      <button class="submitBtn" @click="createBlog">Create Blog</button>
+      <button class="submitBtnBlog" @click="createBlog">Create Blog</button>
     </div>
 
     <div v-if="blogs.length">
@@ -14,7 +14,7 @@
             <h3> {{ blog.blog }} </h3>
             <h4> {{ blog.username }} </h4>
             <button class="updateBtn" @click="toggleUpdateModal(blog.blog, blog.id)">UPDATE</button>
-            <button class="deleteBtn" @click="deleteBlog(blog.id)">DELETE</button>
+            <button class="deleteBtnBlog" @click="deleteBlog(blog.id)">DELETE</button>
         </div>
     </div>
     
@@ -144,7 +144,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.submitBtn {
+.submitBtnBlog {
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
@@ -153,7 +153,7 @@ input[type="checkbox"] {
   border-radius: 20px;
 }
 
-.deleteBtn {
+.deleteBtnBlog {
   background: red;
   border: 0;
   padding: 5px 10px;
@@ -181,4 +181,13 @@ input[type="checkbox"] {
   font-size: 0.8em;
   font-weight: bold;
 }
+
+.blog {
+  text-decoration: none;
+}
+
+.blog_username {
+  text-decoration: none;
+}
+
 </style>

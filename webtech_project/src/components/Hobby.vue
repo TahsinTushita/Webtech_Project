@@ -1,19 +1,19 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <label>Hobby:</label>
-    <input type="text" required v-model="hobby"/>
+    <input class="hobbyName" type="text" required v-model="hobby"/>
     <label>User name:</label>
-    <input type="text" required v-model="username"/>
+    <input class="hobby_username" type="text" required v-model="username"/>
 
     <div class="submit">
-      <button class="submitBtn" @click="createHobby">Create Hobby</button>
+      <button class="submitBtnHobby" @click="createHobby">Create Hobby</button>
     </div>
 
     <div v-if="hobbies.length">
         <div v-for="hobby in hobbies" :key="hobby.id">
             <h3>{{ hobby.hobby }}</h3>
             <h4>{{ hobby.username }}</h4>
-            <button class="deleteBtn" @click="deleteHobby(hobby.id)">DELETE</button>
+            <button class="deleteBtnHobby" @click="deleteHobby(hobby.id)">DELETE</button>
             <button class="updateBtn" @click="toggleUpdateModal(hobby.hobby, hobby.id)">UPDATE</button>
         </div>
     </div>
@@ -146,7 +146,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.submitBtn {
+.submitBtnHobby {
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
@@ -155,7 +155,7 @@ input[type="checkbox"] {
   border-radius: 20px;
 }
 
-.deleteBtn {
+.deleteBtnHobby {
   background: red;
   border: 0;
   padding: 5px 10px;
@@ -183,4 +183,13 @@ input[type="checkbox"] {
   font-size: 0.8em;
   font-weight: bold;
 }
+
+.hobby_username {
+  text-decoration: none;
+}
+
+.hobbyName {
+  text-decoration: none;
+}
+
 </style>

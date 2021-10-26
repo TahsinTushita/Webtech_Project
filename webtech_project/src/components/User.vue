@@ -1,15 +1,15 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <label>User name:</label>
-    <input type="text" required v-model="username" />
+    <input type="text" class="user_username" required v-model="username" />
 
     <div class="submit">
-      <button class="submitBtn" @click="createUser">Create User</button>
+      <button class="submitBtnUser" @click="createUser">Create User</button>
     </div>
     <div v-if="users.length">
-        <div v-for="user in users" :key="user.id">
+        <div v-for="user in users" :key="user.id" class="forDiv">
             <h4> {{ user.username }} </h4>
-            <button class="deleteBtn" @click="deleteUser(user.username)">delete</button>
+            <button class="deleteBtnUser" @click="deleteUser(user.username)">delete</button>
         </div>
     </div>
   </form>
@@ -103,7 +103,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.submitBtn {
+.submitBtnUser {
   background: #0b6dff;
   border: 0;
   padding: 10px 20px;
@@ -112,7 +112,7 @@ input[type="checkbox"] {
   border-radius: 20px;
 }
 
-.deleteBtn {
+.deleteBtnUser {
   background: red;
   border: 0;
   padding: 5px 10px;
@@ -120,7 +120,7 @@ input[type="checkbox"] {
   border-radius: 10px;
 }
 
-.submit {
+.submitUser {
   text-align: center;
 }
 
@@ -129,5 +129,13 @@ input[type="checkbox"] {
   margin-top: 10px;
   font-size: 0.8em;
   font-weight: bold;
+}
+
+.user_username {
+  text-decoration: none;
+}
+
+.forDiv {
+  text-decoration: none;
 }
 </style>
