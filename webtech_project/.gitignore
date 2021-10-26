@@ -2,8 +2,10 @@
 /node_modules
 /dist
 /vue.js.config
-/cypress
-/cypress.json
+# /cypress
+# /cypress.json
+/cypress/integration/1-getting-started
+/cypress/integration/2-advanced-examples
 
 
 # local env files
