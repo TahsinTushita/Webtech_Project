@@ -30,21 +30,21 @@ describe("The pet element", () => {
   });
 });
 
-describe("The hobby element", () => {
-  it("works successfully", () => {
-    cy.get("input.hobbyName").type("Reading");
-    cy.get("input.hobby_username").type("itachi");
-    cy.get("button.submitBtnHobby")
-      .click()
-      .then(() => {
-        cy.contains("Reading").then(() => {
-          cy.get("button.deleteBtnHobby")
-            .last()
-            .click({ force: true });
-        });
-      });
-  });
-});
+// describe("The hobby element", () => {
+//   it("works successfully", () => {
+//     cy.get("input.hobbyName").type("Reading");
+//     cy.get("input.hobby_username").type("itachi");
+//     cy.get("button.submitBtnHobby")
+//       .click()
+//       .then(() => {
+//         cy.contains("Reading").then(() => {
+//           cy.get("button.deleteBtnHobby")
+//             .last()
+//             .click({ force: true });
+//         });
+//       });
+//   });
+// });
 
 describe("The todo element", () => {
   it("works successfully", () => {
