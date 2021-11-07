@@ -2,6 +2,7 @@
 /node_modules
 /dist
 /vue.js.config
+/.env
 # /cypress
 # /cypress.json
 /cypress/integration/1-getting-started

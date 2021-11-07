@@ -6,6 +6,8 @@ const petController = require("./db/pet_controller");
 const hobbyController = require("./db/hobby_controller");
 const todoController = require("./db/todo_controller");
 const blogController = require("./db/blog_controller");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 
@@ -13,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
-  origin: "http://localhost:8080",
+  origin: process.env.CORS_ORIGIN,
 };
 app.use(cors(corsOptions));
 
@@ -45,6 +47,6 @@ app.put("/api/blog/update", blogController.update);
 app.delete("/api/blog/delete/:id", blogController.delete);
 app.get("/api/blog", blogController.getAll);
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(process.env.PORT, () => {
+  console.log("Server running on port " + process.env.PORT);
 });

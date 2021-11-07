@@ -1,5 +1,11 @@
 import { createStore } from "vuex";
 import axios from "axios";
+const path = require("path");
+require("dotenv").config({
+  path: path.resolve(__dirname, "../../.env"),
+});
+
+axios.defaults.baseURL = process.env.baseURL;
 
 export default createStore({
   state: {
