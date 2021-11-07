@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "http://localhost:8080",
 };
 app.use(cors(corsOptions));
 
@@ -45,6 +45,6 @@ app.put("/api/blog/update", blogController.update);
 app.delete("/api/blog/delete/:id", blogController.delete);
 app.get("/api/blog", blogController.getAll);
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
 });

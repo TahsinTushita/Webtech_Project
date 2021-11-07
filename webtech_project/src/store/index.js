@@ -32,7 +32,7 @@ export default createStore({
   },
   actions: {
     getUsers({ commit }) {
-      axios("http://localhost:5000/api/users").then((res) => {
+      axios("http://localhost:3000/api/users").then((res) => {
         commit("SET_USERS", res.data);
         console.log(res.data);
       }),
@@ -42,7 +42,7 @@ export default createStore({
     },
 
     createUser({ commit }, data) {
-      axios.post("http://localhost:5000/api/user/create", data).then((res) => {
+      axios.post("http://localhost:3000/api/user/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getUsers");
       }),
@@ -53,7 +53,7 @@ export default createStore({
 
     deleteUser({ commit }, username) {
       axios
-        .delete("http://localhost:5000/api/user/delete/" + username)
+        .delete("http://localhost:3000/api/user/delete/" + username)
         .then((res) => {
           console.log(res.data);
           this.dispatch("getUsers");
@@ -65,7 +65,7 @@ export default createStore({
     },
 
     getPets({ commit }) {
-      axios.get("http://localhost:5000/api/pet").then((res) => {
+      axios.get("http://localhost:3000/api/pet").then((res) => {
         commit("SET_PETS", res.data);
         console.log(res.data);
       }),
@@ -75,7 +75,7 @@ export default createStore({
     },
 
     createPet({ commit }, data) {
-      axios.post("http://localhost:5000/api/pet/create", data).then((res) => {
+      axios.post("http://localhost:3000/api/pet/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getPets");
         this.dispatch("getUsers");
@@ -87,7 +87,7 @@ export default createStore({
 
     deletePet({ commit }, petId) {
       axios
-        .delete("http://localhost:5000/api/pet/delete/" + petId)
+        .delete("http://localhost:3000/api/pet/delete/" + petId)
         .then((res) => {
           console.log(res.data);
           this.dispatch("getPets");
@@ -98,7 +98,7 @@ export default createStore({
     },
 
     updatePet({ commit }, data) {
-      axios.put("http://localhost:5000/api/pet/update", data).then((res) => {
+      axios.put("http://localhost:3000/api/pet/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getPets");
       }),
@@ -108,7 +108,7 @@ export default createStore({
     },
 
     getHobbies({ commit }) {
-      axios.get("http://localhost:5000/api/hobby").then((res) => {
+      axios.get("http://localhost:3000/api/hobby").then((res) => {
         commit("SET_HOBBIES", res.data);
         console.log(res.data);
       }),
@@ -118,7 +118,7 @@ export default createStore({
     },
 
     createHobby({ commit }, data) {
-      axios.post("http://localhost:5000/api/hobby/create", data).then((res) => {
+      axios.post("http://localhost:3000/api/hobby/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getHobbies");
         this.dispatch("getUsers");
@@ -130,7 +130,7 @@ export default createStore({
 
     deleteHobby({ commit }, hobbyId) {
       axios
-        .delete("http://localhost:5000/api/hobby/delete/" + hobbyId)
+        .delete("http://localhost:3000/api/hobby/delete/" + hobbyId)
         .then((res) => {
           console.log(res.data);
           this.dispatch("getHobbies");
@@ -141,7 +141,7 @@ export default createStore({
     },
 
     updateHobby({ commit }, data) {
-      axios.put("http://localhost:5000/api/hobby/update", data).then((res) => {
+      axios.put("http://localhost:3000/api/hobby/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getHobbies");
       }),
@@ -151,7 +151,7 @@ export default createStore({
     },
 
     getTodolist({ commit }) {
-      axios.get("http://localhost:5000/api/todo").then((res) => {
+      axios.get("http://localhost:3000/api/todo").then((res) => {
         console.log(res.data);
         commit("SET_TODOLIST", res.data);
       }),
@@ -161,7 +161,7 @@ export default createStore({
     },
 
     createTodo({ commit }, data) {
-      axios.post("http://localhost:5000/api/todo/create", data).then((res) => {
+      axios.post("http://localhost:3000/api/todo/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getTodolist");
         this.dispatch("getUsers");
@@ -173,7 +173,7 @@ export default createStore({
 
     deleteTodo({ commit }, todoId) {
       axios
-        .delete("http://localhost:5000/api/todo/delete/" + todoId)
+        .delete("http://localhost:3000/api/todo/delete/" + todoId)
         .then((res) => {
           console.log(res.data);
           this.dispatch("getTodolist");
@@ -184,7 +184,7 @@ export default createStore({
     },
 
     updateTodo({ commit }, data) {
-      axios.put("http://localhost:5000/api/todo/update", data).then((res) => {
+      axios.put("http://localhost:3000/api/todo/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getTodolist");
       }),
@@ -194,7 +194,7 @@ export default createStore({
     },
 
     getBlogs({ commit }) {
-      axios.get("http://localhost:5000/api/blog").then((res) => {
+      axios.get("http://localhost:3000/api/blog").then((res) => {
         commit("SET_BLOGS", res.data);
         console.log(res.data);
       }),
@@ -204,7 +204,7 @@ export default createStore({
     },
 
     createBlog({ commit }, data) {
-      axios.post("http://localhost:5000/api/blog/create", data).then((res) => {
+      axios.post("http://localhost:3000/api/blog/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getBlogs");
         this.dispatch("getUsers");
@@ -216,7 +216,7 @@ export default createStore({
 
     deleteBlog({ commit }, blogId) {
       axios
-        .delete("http://localhost:5000/api/blog/delete/" + blogId)
+        .delete("http://localhost:3000/api/blog/delete/" + blogId)
         .then((res) => {
           console.log(res.data);
           this.dispatch("getBlogs");
@@ -227,7 +227,7 @@ export default createStore({
     },
 
     updateBlog({ commit }, data) {
-      axios.put("http://localhost:5000/api/blog/update", data).then((res) => {
+      axios.put("http://localhost:3000/api/blog/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getBlogs");
       }),

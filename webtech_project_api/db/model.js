@@ -172,16 +172,19 @@ Pet.transactedCreateWithUser = (newUser, newPet, result) => {
 };
 
 Pet.getAll = (result) => {
-  con.query("SELECT * FROM pet", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
+  con.query(
+    "SELECT users.username,pet.pet,pet.id FROM users JOIN pet ON users.username = pet.username",
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
 
-    console.log("pet: ", res);
-    result(null, res);
-  });
+      console.log("pet: ", res);
+      result(null, res);
+    }
+  );
 };
 
 PetUpdate.updateById = (pet, result) => {
@@ -274,16 +277,19 @@ Hobby.transactedCreateWithUser = (newUser, newHobby, result) => {
 };
 
 Hobby.getAll = (result) => {
-  con.query("SELECT * FROM hobby", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
+  con.query(
+    "SELECT users.username,hobby.hobby,hobby.id FROM users RIGHT JOIN hobby ON users.username = hobby.username",
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
 
-    console.log("hobby: ", res);
-    result(null, res);
-  });
+      console.log("hobby: ", res);
+      result(null, res);
+    }
+  );
 };
 
 HobbyUpdate.updateById = (hobby, result) => {
@@ -376,16 +382,19 @@ Todo.transactedCreateWithUser = (newUser, newTodo, result) => {
 };
 
 Todo.getAll = (result) => {
-  con.query("SELECT * FROM todo_list", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
+  con.query(
+    "SELECT users.username,todo_list.todo,todo_list.id FROM users RIGHT JOIN todo_list ON users.username = todo_list.username",
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
 
-    console.log("todo: ", res);
-    result(null, res);
-  });
+      console.log("todo: ", res);
+      result(null, res);
+    }
+  );
 };
 
 TodoUpdate.updateById = (todo, result) => {
@@ -478,16 +487,19 @@ Blog.transactedCreateWithUser = (newUser, newBlog, result) => {
 };
 
 Blog.getAll = (result) => {
-  con.query("SELECT * FROM blog", (err, res) => {
-    if (err) {
-      console.log("error: ", err);
-      result(null, err);
-      return;
-    }
+  con.query(
+    "SELECT users.username,blog.blog,blog.id FROM users RIGHT JOIN blog ON users.username = blog.username",
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
 
-    console.log("blog: ", res);
-    result(null, res);
-  });
+      console.log("blog: ", res);
+      result(null, res);
+    }
+  );
 };
 
 BlogUpdate.updateById = (blog, result) => {
