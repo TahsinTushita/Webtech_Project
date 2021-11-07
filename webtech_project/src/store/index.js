@@ -5,7 +5,7 @@ require("dotenv").config({
   path: path.resolve(__dirname, "../../.env"),
 });
 
-axios.defaults.baseURL = process.env.baseURL;
+axios.defaults.baseURL = "http://localhost:3000";
 
 export default createStore({
   state: {
@@ -38,7 +38,7 @@ export default createStore({
   },
   actions: {
     getUsers({ commit }) {
-      axios("http://localhost:3000/api/users").then((res) => {
+      axios("/api/users").then((res) => {
         commit("SET_USERS", res.data);
         console.log(res.data);
       }),
@@ -48,7 +48,7 @@ export default createStore({
     },
 
     createUser({ commit }, data) {
-      axios.post("http://localhost:3000/api/user/create", data).then((res) => {
+      axios.post("/api/user/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getUsers");
       }),
@@ -58,20 +58,18 @@ export default createStore({
     },
 
     deleteUser({ commit }, username) {
-      axios
-        .delete("http://localhost:3000/api/user/delete/" + username)
-        .then((res) => {
-          console.log(res.data);
-          this.dispatch("getUsers");
-          this.dispatch("getPets");
-          this.dispatch("getHobbies");
-          this.dispatch("getTodolist");
-          this.dispatch("getBlogs");
-        });
+      axios.delete("/api/user/delete/" + username).then((res) => {
+        console.log(res.data);
+        this.dispatch("getUsers");
+        this.dispatch("getPets");
+        this.dispatch("getHobbies");
+        this.dispatch("getTodolist");
+        this.dispatch("getBlogs");
+      });
     },
 
     getPets({ commit }) {
-      axios.get("http://localhost:3000/api/pet").then((res) => {
+      axios.get("/api/pet").then((res) => {
         commit("SET_PETS", res.data);
         console.log(res.data);
       }),
@@ -81,7 +79,7 @@ export default createStore({
     },
 
     createPet({ commit }, data) {
-      axios.post("http://localhost:3000/api/pet/create", data).then((res) => {
+      axios.post("/api/pet/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getPets");
         this.dispatch("getUsers");
@@ -92,19 +90,17 @@ export default createStore({
     },
 
     deletePet({ commit }, petId) {
-      axios
-        .delete("http://localhost:3000/api/pet/delete/" + petId)
-        .then((res) => {
-          console.log(res.data);
-          this.dispatch("getPets");
-        }),
+      axios.delete("/api/pet/delete/" + petId).then((res) => {
+        console.log(res.data);
+        this.dispatch("getPets");
+      }),
         (error) => {
           console.log(error);
         };
     },
 
     updatePet({ commit }, data) {
-      axios.put("http://localhost:3000/api/pet/update", data).then((res) => {
+      axios.put("/api/pet/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getPets");
       }),
@@ -114,7 +110,7 @@ export default createStore({
     },
 
     getHobbies({ commit }) {
-      axios.get("http://localhost:3000/api/hobby").then((res) => {
+      axios.get("/api/hobby").then((res) => {
         commit("SET_HOBBIES", res.data);
         console.log(res.data);
       }),
@@ -124,7 +120,7 @@ export default createStore({
     },
 
     createHobby({ commit }, data) {
-      axios.post("http://localhost:3000/api/hobby/create", data).then((res) => {
+      axios.post("/api/hobby/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getHobbies");
         this.dispatch("getUsers");
@@ -135,19 +131,17 @@ export default createStore({
     },
 
     deleteHobby({ commit }, hobbyId) {
-      axios
-        .delete("http://localhost:3000/api/hobby/delete/" + hobbyId)
-        .then((res) => {
-          console.log(res.data);
-          this.dispatch("getHobbies");
-        }),
+      axios.delete("/api/hobby/delete/" + hobbyId).then((res) => {
+        console.log(res.data);
+        this.dispatch("getHobbies");
+      }),
         (error) => {
           console.log(error);
         };
     },
 
     updateHobby({ commit }, data) {
-      axios.put("http://localhost:3000/api/hobby/update", data).then((res) => {
+      axios.put("/api/hobby/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getHobbies");
       }),
@@ -157,7 +151,7 @@ export default createStore({
     },
 
     getTodolist({ commit }) {
-      axios.get("http://localhost:3000/api/todo").then((res) => {
+      axios.get("/api/todo").then((res) => {
         console.log(res.data);
         commit("SET_TODOLIST", res.data);
       }),
@@ -167,7 +161,7 @@ export default createStore({
     },
 
     createTodo({ commit }, data) {
-      axios.post("http://localhost:3000/api/todo/create", data).then((res) => {
+      axios.post("/api/todo/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getTodolist");
         this.dispatch("getUsers");
@@ -178,19 +172,17 @@ export default createStore({
     },
 
     deleteTodo({ commit }, todoId) {
-      axios
-        .delete("http://localhost:3000/api/todo/delete/" + todoId)
-        .then((res) => {
-          console.log(res.data);
-          this.dispatch("getTodolist");
-        }),
+      axios.delete("/api/todo/delete/" + todoId).then((res) => {
+        console.log(res.data);
+        this.dispatch("getTodolist");
+      }),
         (error) => {
           console.log(error);
         };
     },
 
     updateTodo({ commit }, data) {
-      axios.put("http://localhost:3000/api/todo/update", data).then((res) => {
+      axios.put("/api/todo/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getTodolist");
       }),
@@ -200,7 +192,7 @@ export default createStore({
     },
 
     getBlogs({ commit }) {
-      axios.get("http://localhost:3000/api/blog").then((res) => {
+      axios.get("/api/blog").then((res) => {
         commit("SET_BLOGS", res.data);
         console.log(res.data);
       }),
@@ -210,7 +202,7 @@ export default createStore({
     },
 
     createBlog({ commit }, data) {
-      axios.post("http://localhost:3000/api/blog/create", data).then((res) => {
+      axios.post("/api/blog/create", data).then((res) => {
         console.log(res.data);
         this.dispatch("getBlogs");
         this.dispatch("getUsers");
@@ -221,19 +213,17 @@ export default createStore({
     },
 
     deleteBlog({ commit }, blogId) {
-      axios
-        .delete("http://localhost:3000/api/blog/delete/" + blogId)
-        .then((res) => {
-          console.log(res.data);
-          this.dispatch("getBlogs");
-        }),
+      axios.delete("/api/blog/delete/" + blogId).then((res) => {
+        console.log(res.data);
+        this.dispatch("getBlogs");
+      }),
         (error) => {
           console.log(error);
         };
     },
 
     updateBlog({ commit }, data) {
-      axios.put("http://localhost:3000/api/blog/update", data).then((res) => {
+      axios.put("/api/blog/update", data).then((res) => {
         console.log(res.data);
         this.dispatch("getBlogs");
       }),
